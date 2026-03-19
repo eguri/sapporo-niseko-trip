@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sapporo & Niseko — Apr 17-19, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+  :root {
+    --snow: #f8fafc;
+    --ice: #e2e8f0;
+    --sky: #38bdf8;
+    --sky-deep: #0284c7;
+    --night: #0f172a;
+    --night-mid: #1e293b;
+    --warm: #fbbf24;
+    --warm-soft: #fef3c7;
+    --green: #34d399;
+    --green-deep: #059669;
+    --rose: #fb7185;
+    --rose-soft: #fff1f2;
+    --violet: #a78bfa;
+    --card: #ffffff;
+    --border: #e2e8f0;
+    --text: #334155;
+    --text-light: #64748b;
+    --radius: 20px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--night);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .serif { font-family: 'Playfair Display', serif; }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    padding: 40px 24px;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 30%, rgba(56,189,248,0.25) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 70%, rgba(167,139,250,0.2) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 50% 50%, rgba(251,191,36,0.1) 0%, transparent 60%),
+      linear-gradient(180deg, #0f172a 0%, #1a2744 40%, #0f172a 100%);
+  }
+  .stars {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.6) 50%, transparent 50%),
+      radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.4) 50%, transparent 50%),
+      radial-gradient(1.5px 1.5px at 50% 15%, rgba(255,255,255,0.7) 50%, transparent 50%),
+      radial-gradient(1px 1px at 70% 40%, rgba(255,255,255,0.5) 50%, transparent 50%),
+      radial-gradient(1px 1px at 85% 75%, rgba(255,255,255,0.4) 50%, transparent 50%),
+      radial-gradient(1.5px 1.5px at 15% 80%, rgba(255,255,255,0.6) 50%, transparent 50%),
+      radial-gradient(1px 1px at 60% 85%, rgba(255,255,255,0.3) 50%, transparent 50%),
+      radial-gradient(1px 1px at 90% 10%, rgba(255,255,255,0.5) 50%, transparent 50%);
+    animation: twinkle 4s ease-in-out infinite alternate;
+  }
+  @keyframes twinkle { 0% { opacity: 0.6; } 100% { opacity: 1; } }
+
+  .hero-content { position: relative; z-index: 2; max-width: 680px; }
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 12px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #ffffff 0%, #93c5fd 50%, #c4b5fd 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero .dates {
+    font-size: 1rem;
+    font-weight: 300;
+    opacity: 0.7;
+    margin-bottom: 48px;
+    letter-spacing: 0.05em;
+  }
+
+  /* Overview strip */
+  .overview-strip {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+  }
+  .ov-card {
+    background: rgba(255,255,255,0.07);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    padding: 24px 20px;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.3s, background 0.3s;
+  }
+  .ov-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.12);
+  }
+  .ov-icon { font-size: 2.4rem; margin-bottom: 10px; }
+  .ov-day {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.5;
+    margin-bottom: 6px;
+  }
+  .ov-title { font-size: 0.9rem; font-weight: 500; line-height: 1.5; }
+  .ov-sub { font-size: 0.7rem; opacity: 0.45; margin-top: 6px; }
+
+  /* Scroll hint */
+  .scroll-hint {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    text-align: center;
+    color: rgba(255,255,255,0.35);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    animation: bounce 2s ease-in-out infinite;
+  }
+  .scroll-hint::after { content: '↓'; display: block; font-size: 1.2rem; margin-top: 4px; }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* ─── MAIN ─── */
+  .main {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 24px 100px;
+    position: relative;
+  }
+
+  /* Day divider */
+  .day-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 64px 0 32px;
+    color: white;
+  }
+  .day-divider .line { flex: 1; height: 1px; background: rgba(255,255,255,0.12); }
+  .day-divider .label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.4;
+  }
+
+  /* Day card */
+  .day-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+    margin-bottom: 32px;
+  }
+
+  .day-hero {
+    padding: 36px 36px 28px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .day-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.1));
+  }
+  .day-hero.night {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
+  }
+  .day-hero.sky {
+    background: linear-gradient(135deg, #0369a1 0%, #0ea5e9 50%, #38bdf8 100%);
+  }
+  .day-hero.forest {
+    background: linear-gradient(135deg, #065f46 0%, #059669 50%, #34d399 100%);
+  }
+  .day-hero .tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-bottom: 8px;
+  }
+  .day-hero h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .day-hero .date-badge {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    font-weight: 400;
+  }
+
+  .day-body { padding: 32px 36px 36px; }
+
+  /* Section title */
+  .sec-title {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-light);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 28px 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sec-title:first-child { margin-top: 0; }
+  .sec-title .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--sky);
+  }
+
+  /* Timeline */
+  .tl { position: relative; padding-left: 32px; }
+  .tl::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--sky), var(--ice));
+    border-radius: 2px;
+  }
+  .tl-row {
+    position: relative;
+    margin-bottom: 22px;
+  }
+  .tl-row:last-child { margin-bottom: 0; }
+  .tl-pip {
+    position: absolute;
+    left: -29px;
+    top: 8px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: white;
+    border: 3px solid var(--sky);
+    transition: transform 0.2s;
+  }
+  .tl-pip.hot { background: var(--warm); border-color: var(--warm); }
+  .tl-pip.rose { background: var(--rose); border-color: var(--rose); }
+  .tl-time {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--sky-deep);
+    margin-bottom: 1px;
+  }
+  .tl-what {
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--night);
+  }
+  .tl-detail {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    margin-top: 1px;
+  }
+
+  /* Callout */
+  .callout {
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin: 18px 0;
+    font-size: 0.82rem;
+    line-height: 1.7;
+    display: flex;
+    gap: 12px;
+  }
+  .callout .emoji { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+  .callout.blue { background: #eff6ff; color: #1e3a5f; }
+  .callout.amber { background: #fffbeb; color: #78350f; }
+  .callout.green { background: #ecfdf5; color: #064e3b; }
+  .callout.rose { background: var(--rose-soft); color: #881337; }
+
+  /* Spot cards */
+  .spots { display: grid; gap: 12px; margin: 14px 0; }
+  .spot {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .spot:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  }
+  .spot.pick {
+    border-color: var(--warm);
+    background: linear-gradient(135deg, #fffbeb 0%, #fef9e7 100%);
+  }
+  .spot-tag {
+    display: inline-block;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+  }
+  .tag-pick { background: var(--warm); color: white; }
+  .tag-alt { background: var(--ice); color: #475569; }
+  .tag-cat { background: #dbeafe; color: #1e40af; }
+  .tag-seafood { background: #e0f2fe; color: #0c4a6e; }
+  .tag-bar { background: #fae8ff; color: #6b21a8; }
+  .spot h4 { font-size: 0.95rem; font-weight: 600; color: var(--night); margin-bottom: 4px; }
+  .spot .info { font-size: 0.78rem; color: var(--text-light); line-height: 1.6; }
+  .spot .hours { font-size: 0.75rem; color: var(--sky-deep); font-weight: 500; margin-bottom: 4px; }
+
+  /* Ski table */
+  .ski-wrap {
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    margin: 14px 0;
+  }
+  .ski-tbl { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+  .ski-tbl th {
+    background: var(--night-mid);
+    color: white;
+    font-weight: 500;
+    padding: 12px 16px;
+    text-align: left;
+  }
+  .ski-tbl td { padding: 12px 16px; border-top: 1px solid var(--border); }
+  .ski-tbl tr:nth-child(even) td { background: #f8fafc; }
+  .open { color: var(--green-deep); font-weight: 600; }
+  .closed { color: var(--rose); font-weight: 600; }
+
+  /* Choice cards */
+  .choices { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+  .choice {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: default;
+  }
+  .choice:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  }
+  .choice h4 { font-size: 0.92rem; font-weight: 600; color: var(--night); margin-bottom: 6px; }
+  .choice p { font-size: 0.78rem; color: var(--text-light); line-height: 1.6; }
+
+  /* ─── BOOKING ─── */
+  .booking {
+    background: linear-gradient(135deg, var(--night) 0%, var(--night-mid) 100%);
+    border-radius: var(--radius);
+    padding: 36px;
+    color: white;
+    margin: 48px 0 32px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+  }
+  .booking h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+  .bk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .bk-item {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 18px;
+  }
+  .bk-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.45;
+    margin-bottom: 8px;
+  }
+  .bk-val { font-size: 0.88rem; font-weight: 500; }
+  .bk-sub { font-size: 0.72rem; opacity: 0.5; margin-top: 3px; }
+  .bk-full { grid-column: 1 / -1; }
+
+  /* ─── CHECKLIST ─── */
+  .checklist {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 36px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+  }
+  .checklist h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--night);
+    margin-bottom: 18px;
+  }
+  .ck-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .ck-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 0.82rem;
+    color: #475569;
+    cursor: pointer;
+    transition: background 0.15s;
+    user-select: none;
+  }
+  .ck-item:hover { background: #f1f5f9; }
+  .ck-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--sky);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  /* Links */
+  .spot h4 a, .ski-tbl td a, .callout a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px dashed currentColor;
+    transition: border-bottom 0.2s;
+  }
+  .spot h4 a:hover, .ski-tbl td a:hover, .callout a:hover {
+    border-bottom: 1px solid currentColor;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 48px 24px 64px;
+    color: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 2rem; }
+    .overview-strip { flex-direction: column; align-items: center; }
+    .ov-card { width: 100%; max-width: 280px; }
+    .day-body { padding: 24px 20px 28px; }
+    .day-hero { padding: 28px 20px 20px; }
+    .bk-grid { grid-template-columns: 1fr; }
+    .ck-grid { grid-template-columns: 1fr; }
+    .choices { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="stars"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">A weekend escape</div>
+    <h1>Sapporo & Niseko</h1>
+    <p class="dates">2026. 4. 17 fri — 4. 19 sun</p>
+    <div class="overview-strip">
+      <div class="ov-card">
+        <div class="ov-icon">🌃</div>
+        <div class="ov-day">Day 1 — Friday</div>
+        <div class="ov-title">札幌到着<br>すすきのナイト</div>
+        <div class="ov-sub">Courtyard Marriott 泊</div>
+      </div>
+      <div class="ov-card">
+        <div class="ov-icon">⛷️</div>
+        <div class="ov-day">Day 2 — Saturday</div>
+        <div class="ov-title">ニセコ春スキー<br>& ニセコディナー</div>
+        <div class="ov-sub">SANU 2nd Home 泊</div>
+      </div>
+      <div class="ov-card">
+        <div class="ov-icon">✈️</div>
+        <div class="ov-day">Day 3 — Sunday</div>
+        <div class="ov-title">ニセコの朝<br>→ 帰京</div>
+        <div class="ov-sub">—</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</section>
+
+<div class="main">
+
+<!-- ═══════ DAY 1 ═══════ -->
+<div class="day-divider">
+  <span class="line"></span>
+  <span class="label">Day 1</span>
+  <span class="line"></span>
+</div>
+
+<div class="day-card">
+  <div class="day-hero night">
+    <div class="tagline">Late night arrival, Susukino vibes</div>
+    <h2>🌃 札幌到着・すすきのナイト</h2>
+    <div class="date-badge">4月17日（金）</div>
+  </div>
+  <div class="day-body">
+
+    <div class="sec-title"><span class="dot"></span>タイムライン</div>
+    <div class="tl">
+      <div class="tl-row">
+        <div class="tl-pip"></div>
+        <div class="tl-time">20:50</div>
+        <div class="tl-what">羽田空港 発 ✈️ ANA4739（ADO運航）</div>
+        <div class="tl-detail">予約番号 0127</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-pip"></div>
+        <div class="tl-time">22:25</div>
+        <div class="tl-what">新千歳空港 着</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-pip"></div>
+        <div class="tl-time">22:30 — 23:10</div>
+        <div class="tl-what">JR快速エアポートで札幌駅へ</div>
+        <div class="tl-detail">約37分。最終便の時刻を事前に確認しておこう</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-pip"></div>
+        <div class="tl-time">23:15 — 23:30</div>
+        <div class="tl-what">地下鉄南北線 → 中島公園駅 → ホテル着</div>
+        <div class="tl-detail">荷物を置いたらすぐすすきのへ！</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-pip hot"></div>
+        <div class="tl-time">23:30 —</div>
+        <div class="tl-what">🔥 すすきのでジンギスカン</div>
+        <div class="tl-detail">ホテルから徒歩約10分</div>
+      </div>
+    </div>
+
+    <div class="callout amber">
+      <span class="emoji">⚠️</span>
+      <div>JR快速エアポートの最終便（22:53発の可能性）を事前確認。逃した場合はタクシーで約60分・1万円前後。荷物はリュック1つで身軽に動こう。</div>
+    </div>
+
+    <div class="sec-title"><span class="dot" style="background:var(--warm)"></span>すすきのジンギスカン</div>
+    <div class="spots">
+      <div class="spot pick">
+        <span class="spot-tag tag-pick">★ 本命</span>
+        <h4><a href="https://tabelog.com/hokkaido/A0101/A010103/1000007/" target="_blank" rel="noopener noreferrer">成吉思汗だるま 本店</a></h4>
+        <div class="hours">🕐 17:00 — 翌5:00 ｜ 📍 南5条西4丁目</div>
+        <div class="info">札幌ジンギスカンの代名詞。生ラム肉の質が格別。予約不可・行列必須だけど、23時台なら待ち時間は短いはず。</div>
+      </div>
+      <div class="spot">
+        <span class="spot-tag tag-alt">代替案 ①</span>
+        <h4><a href="https://tabelog.com/hokkaido/A0101/A010103/1003369/" target="_blank" rel="noopener noreferrer">夜空のジンギスカン 本店</a></h4>
+        <div class="hours">🕐 17:00 — 翌3:00 ｜ 📍 南4条西2丁目</div>
+        <div class="info">予約可能。ビル上層階から札幌の夜景を見ながらのジンギスカン。雰囲気重視ならここ。</div>
+      </div>
+      <div class="spot">
+        <span class="spot-tag tag-alt">代替案 ②</span>
+        <h4><a href="https://tabelog.com/hokkaido/A0101/A010103/1023597/" target="_blank" rel="noopener noreferrer">風土 すすきの店</a></h4>
+        <div class="hours">🕐 17:00 — 翌5:00</div>
+        <div class="info">北海道産ひつじ「西川農場のアスパラひつじ」が名物。臭みなく肉厚。他のメニューも充実。</div>
+      </div>
+    </div>
+
+    <div class="callout green">
+      <span class="emoji">🍜</span>
+      <div>ジンギスカン後、帰り道で札幌味噌ラーメンの〆もいいかも。「<a href="https://tabelog.com/hokkaido/A0101/A010103/1009050/" target="_blank" rel="noopener noreferrer">すみれ</a>」すすきの店や深夜営業の「<a href="https://tabelog.com/hokkaido/A0101/A010103/1000150/" target="_blank" rel="noopener noreferrer">けやき</a>」がホテルへの道中にある。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ DAY 2 ═══════ -->
+<div class="day-divider">
+  <span class="line"></span>
+  <span class="label">Day 2</span>
+  <span class="line"></span>
+</div>
+
+<div class="day-card">
+  <div class="day-hero sky">
+    <div class="tagline">Spring skiing & mountain retreat</div>
+    <h2>⛷️ ニセコ春スキー & ニセコナイト</h2>
+    <div class="date-badge">4月18日（土）</div>
+  </div>
+  <div class="day-body">
+
+    <div class="sec-title"><span class="dot"></span>タイムライン</div>
+    <div class="tl">
+      <div class="tl-row">
+        <div class="tl-pip"></div>
+        <div class="tl-time">7:30 — 8:30</div>
+        <div class="tl-what">ホテル朝食 or 札幌モーニング</div>
+        <div class="tl-detail">マリオットの朝食ビュッフェも◎</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-pip hot"></div>
+        <div class="tl-time">9:00</div>
+        <div class="tl-what">🚗 レンタカーで出発！</div>
+        <div class="tl-detail">ニッポンレンタカー 札幌駅東店 ／ SUV・スタッドレス・4WD</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-pip"></div>
+        <div class="tl-time">9:00 — 11:30</div>
+        <div class="tl-what">札幌 → ニセコ ドライブ（約2.5時間）</div>
+        <div class="tl-detail">国道230号 → 中山峠経由。峠からの羊蹄山の眺めが最高</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-pip hot"></div>
+        <div class="tl-time">12:00 — 16:00</div>
+        <div class="tl-what">⛷️ 春スキー！</div>
+        <div class="tl-detail">午後券がお得。レンタルは事前予約がおすすめ</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-pip rose"></div>
+        <div class="tl-time">16:30</div>
+        <div class="tl-what">🏠 SANU 2nd Home ニセコ チェックイン</div>
+        <div class="tl-detail">森の中のキャビンでほっと一息</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-pip hot"></div>
+        <div class="tl-time">18:30 —</div>
+        <div class="tl-what">🍽️ ニセコ周辺でディナー</div>
+      </div>
+    </div>
+
+    <div class="sec-title"><span class="dot" style="background:var(--sky)"></span>ゲレンデ選び（4/18 営業状況）</div>
+    <div class="ski-wrap">
+      <table class="ski-tbl">
+        <thead><tr><th>スキー場</th><th>営業</th><th>コメント</th></tr></thead>
+        <tbody>
+          <tr><td><a href="https://www.grand-hirafu.jp/" target="_blank" rel="noopener noreferrer">ニセコ東急 グラン・ヒラフ</a></td><td class="open">○ 5/6まで</td><td>最大規模。コース豊富。春スキーの本命</td></tr>
+          <tr><td><a href="https://annupuri.info/" target="_blank" rel="noopener noreferrer">ニセコアンヌプリ国際</a></td><td class="open">○ 5/6まで</td><td>SANUから最寄り。幅広コースで滑りやすい</td></tr>
+          <tr><td><a href="https://hanazononiseko.com/ja" target="_blank" rel="noopener noreferrer">ニセコ HANAZONO</a></td><td class="closed">✕ 4/12終了</td><td>閉鎖済み</td></tr>
+          <tr><td><a href="https://www.niseko-village.com/ja/" target="_blank" rel="noopener noreferrer">ニセコビレッジ</a></td><td class="closed">✕ 4/12終了</td><td>閉鎖済み</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout blue">
+      <span class="emoji">🎿</span>
+      <div>おすすめプラン：午前にグラン・ヒラフで滑って、午後はSANUに近いアンヌプリへ移動。全山リフト券なら両方OK。午前のほうが雪のコンディションが良い！</div>
+    </div>
+
+    <div class="callout amber">
+      <span class="emoji">☀️</span>
+      <div>春スキーTips：日焼け止め必須（紫外線が強い）、服装は薄手でOK、ザラメ雪は午前が◎</div>
+    </div>
+
+    <div class="sec-title"><span class="dot" style="background:var(--rose)"></span>ニセコの夜 ディナー候補</div>
+    <div class="spots">
+      <div class="spot">
+        <span class="spot-tag tag-cat">和食</span>
+        <h4><a href="https://shabushabumori.com/" target="_blank" rel="noopener noreferrer">しゃぶしゃぶ森ニセコ</a></h4>
+        <div class="info">道産牛・ラム肉のしゃぶしゃぶ。新鮮な北海道野菜とともに。二人でゆっくり鍋を囲む贅沢。</div>
+      </div>
+      <div class="spot">
+        <span class="spot-tag tag-cat">和食</span>
+        <h4><a href="https://tabelog.com/hokkaido/A0106/A010603/1073397/" target="_blank" rel="noopener noreferrer">MAME（まめ）</a></h4>
+        <div class="info">ひらふエリアの和食ダイニング。地元食材を使った創作和食。</div>
+      </div>
+      <div class="spot">
+        <span class="spot-tag tag-seafood">海鮮</span>
+        <h4><a href="https://tabelog.com/hokkaido/A0106/A010603/1029456/" target="_blank" rel="noopener noreferrer">エゾシーフード（Ezo Seafood）</a></h4>
+        <div class="info">ひらふもみじ通りのオイスターバー。北海道産の牡蠣・ホタテが絶品。</div>
+      </div>
+      <div class="spot">
+        <span class="spot-tag tag-seafood">海鮮</span>
+        <h4>鮨 いちむら</h4>
+        <div class="info">ニセコエリアの寿司店。北海道のネタを堪能。</div>
+      </div>
+      <div class="spot">
+        <span class="spot-tag tag-bar">バー</span>
+        <h4><a href="https://tabelog.com/hokkaido/A0106/A010603/1017230/" target="_blank" rel="noopener noreferrer">Bar Gyu+</a> ／ <a href="https://tabelog.com/hokkaido/A0106/A010603/1049296/" target="_blank" rel="noopener noreferrer">Niseko Taproom</a></h4>
+        <div class="info">食後の一杯に。クラフトビールも充実。</div>
+      </div>
+    </div>
+
+    <div class="callout green">
+      <span class="emoji">🏠</span>
+      <div>SANUのキャビンにはキッチンあり。道の駅やニセコ高橋牧場で食材を調達して、二人で自炊するのもSANUならではの過ごし方。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ DAY 3 ═══════ -->
+<div class="day-divider">
+  <span class="line"></span>
+  <span class="label">Day 3</span>
+  <span class="line"></span>
+</div>
+
+<div class="day-card">
+  <div class="day-hero forest">
+    <div class="tagline">One last morning in the mountains</div>
+    <h2>✈️ ニセコの朝 → 帰京</h2>
+    <div class="date-badge">4月19日（日）</div>
+  </div>
+  <div class="day-body">
+
+    <div class="sec-title"><span class="dot"></span>タイムライン</div>
+    <div class="tl">
+      <div class="tl-row">
+        <div class="tl-pip rose"></div>
+        <div class="tl-time">7:00 — 8:00</div>
+        <div class="tl-what">☕ SANUで朝。羊蹄山を眺めながらコーヒー</div>
+        <div class="tl-detail">キャビンのテラスで静かな朝の時間</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-pip"></div>
+        <div class="tl-time">8:00 — 10:00</div>
+        <div class="tl-what">午前の過ごし方（下記から選択）</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-pip"></div>
+        <div class="tl-time">10:30</div>
+        <div class="tl-what">SANUチェックアウト → 新千歳空港へ</div>
+        <div class="tl-detail">約2〜2.5時間のドライブ</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-pip"></div>
+        <div class="tl-time">13:00</div>
+        <div class="tl-what">新千歳空港着 → レンタカー返却</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-pip"></div>
+        <div class="tl-time">13:30 — 14:30</div>
+        <div class="tl-what">新千歳空港で最後の北海道グルメ & お土産</div>
+        <div class="tl-detail">ラーメン道場 or ロイズチョコレートワールド</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-pip hot"></div>
+        <div class="tl-time">15:00</div>
+        <div class="tl-what">新千歳空港 発 ✈️ ANA4726（ADO運航）</div>
+        <div class="tl-detail">予約番号 0142</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-pip"></div>
+        <div class="tl-time">16:40</div>
+        <div class="tl-what">羽田空港 着 🏠</div>
+      </div>
+    </div>
+
+    <div class="sec-title"><span class="dot" style="background:var(--green)"></span>午前の過ごし方</div>
+    <div class="choices">
+      <div class="choice">
+        <h4>⛷️ A. 早朝スキー</h4>
+        <p>アンヌプリで8:30リフト開始。朝の締まった雪で2〜3本。SANUから5分。</p>
+      </div>
+      <div class="choice">
+        <h4>🚗 B. ニセコ周辺ドライブ</h4>
+        <p>高橋牧場（ソフトクリーム＆羊蹄山ビュー）、五色温泉（秘湯）、道の駅でお土産。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ BOOKING ═══════ -->
+<div class="booking">
+  <h3>📋 Reservations</h3>
+  <div class="bk-grid">
+    <div class="bk-item">
+      <div class="bk-label">往路フライト</div>
+      <div class="bk-val">ANA4739（ADO運航）</div>
+      <div class="bk-sub">4/17 羽田 20:50 → 新千歳 22:25</div>
+      <div class="bk-sub">予約番号 0127</div>
+    </div>
+    <div class="bk-item">
+      <div class="bk-label">復路フライト</div>
+      <div class="bk-val">ANA4726（ADO運航）</div>
+      <div class="bk-sub">4/19 新千歳 15:00 → 羽田 16:40</div>
+      <div class="bk-sub">予約番号 0142</div>
+    </div>
+    <div class="bk-item">
+      <div class="bk-label">4/17 泊</div>
+      <div class="bk-val">Courtyard by Marriott 札幌</div>
+      <div class="bk-sub">確認番号 98671840</div>
+    </div>
+    <div class="bk-item">
+      <div class="bk-label">4/18 泊</div>
+      <div class="bk-val">SANU 2nd Home ニセコ</div>
+    </div>
+    <div class="bk-item bk-full">
+      <div class="bk-label">レンタカー</div>
+      <div class="bk-val">ニッポンレンタカー ／ SUV・スタッドレス・4WD</div>
+      <div class="bk-sub">予約番号 T08329 ／ 4/18 9:00 札幌駅東店 出発 → 4/19 15:00 新千歳空港店 返却</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ CHECKLIST ═══════ -->
+<div class="checklist">
+  <h3>✅ 持ち物チェックリスト</h3>
+  <div class="ck-grid">
+    <label class="ck-item"><input type="checkbox"> スキー / ボードウェア（春仕様）</label>
+    <label class="ck-item"><input type="checkbox"> ゴーグル・グローブ</label>
+    <label class="ck-item"><input type="checkbox"> 日焼け止め</label>
+    <label class="ck-item"><input type="checkbox"> サングラス</label>
+    <label class="ck-item"><input type="checkbox"> 防水バッグ</label>
+    <label class="ck-item"><input type="checkbox"> 充電器・モバイルバッテリー</label>
+    <label class="ck-item"><input type="checkbox"> ANA予約確認画面</label>
+    <label class="ck-item"><input type="checkbox"> レンタカー予約確認メール</label>
+    <label class="ck-item"><input type="checkbox"> マリオット予約確認番号</label>
+    <label class="ck-item"><input type="checkbox"> 運転免許証</label>
+  </div>
+</div>
+
+</div>
+
+<div class="footer">
+  Made with ❄️ — Have a wonderful trip!
+</div>
+
+</body>
+</html>
