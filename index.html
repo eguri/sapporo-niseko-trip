@@ -682,6 +682,82 @@
     line-height: 1.65;
   }
 
+  /* ─── TICKET CARD (QR) ─── */
+  .ticket-card {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border-radius: 18px;
+    padding: 28px;
+    margin: 18px 0;
+    color: white;
+    box-shadow: 0 10px 32px rgba(15,23,42,0.25);
+  }
+  .ticket-card .rd-grid { gap: 16px 20px; }
+  .ticket-card .rd-label { color: rgba(255,255,255,0.55); }
+  .ticket-card .rd-val { color: white; font-size: 0.92rem; }
+  .ticket-card .rd-sub { color: rgba(255,255,255,0.65); }
+  .ticket-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  .ticket-head h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: white;
+  }
+  .ticket-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: var(--green);
+    color: #064e3b;
+  }
+  .ticket-qr-frame {
+    background: white;
+    border-radius: 14px;
+    padding: 20px;
+    margin: 8px auto 0;
+    max-width: 340px;
+    text-align: center;
+  }
+  .ticket-qr-frame img {
+    max-width: 100%;
+    width: 280px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  .qr-placeholder {
+    padding: 32px 16px;
+    border: 2px dashed #cbd5e1;
+    border-radius: 10px;
+    color: #64748b;
+  }
+  .qr-ph-icon { font-size: 2.4rem; margin-bottom: 8px; }
+  .qr-ph-text {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 6px;
+  }
+  .qr-ph-sub {
+    font-size: 0.72rem;
+    color: #64748b;
+    line-height: 1.6;
+  }
+  .qr-ph-sub code {
+    background: #f1f5f9;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    color: #0f172a;
+  }
+
   /* ─── ROUTE (札幌→ニセコ) ─── */
   .route-grid {
     display: grid;
@@ -1212,22 +1288,59 @@
       </div>
     </div>
 
-    <div class="sec-title"><span class="dot" style="background:var(--warm)"></span>リフト券（2026シーズン）</div>
+    <div class="sec-title"><span class="dot" style="background:var(--warm)"></span>リフト券（Final Season 4/6–5/6 大人料金）</div>
     <div class="ski-wrap">
       <table class="ski-tbl">
-        <thead><tr><th>券種</th><th>大人</th><th>メモ</th></tr></thead>
+        <thead><tr><th>券種</th><th>オンライン</th><th>窓口</th><th>メモ</th></tr></thead>
         <tbody>
-          <tr><td>グラン・ヒラフ 1日券</td><td>¥11,000</td><td>ヒラフエリア内のみ</td></tr>
-          <tr><td>ニセコユナイテッド 全山券 1日</td><td>¥12,000</td><td>アンヌプリも滑るなら断然こちら</td></tr>
-          <tr><td>半日券（午後）</td><td>要確認</td><td>12:00スタート向け。春は在庫少なめ</td></tr>
-          <tr><td><a href="https://www.grand-hirafu.jp/winter/gelande/online_shop.html" target="_blank" rel="noopener noreferrer">オンライン事前購入</a></td><td>約5% OFF</td><td>窓口行列を回避できるのでおすすめ</td></tr>
+          <tr><td><strong>ニセコユナイテッド 全山 1日券</strong> ★購入済</td><td><strong>¥5,700</strong></td><td>¥6,000</td><td>ヒラフ＋アンヌプリ。シャトルバス込み</td></tr>
+          <tr><td>グラン・ヒラフ＆HANAZONO 1日券</td><td>¥5,500</td><td>¥5,800</td><td>HANAZONOは閉鎖中なので実質ヒラフ単体</td></tr>
+          <tr><td>午後半日券（12:00〜・Hirafu）</td><td>¥4,400</td><td>¥4,700</td><td>短時間派向け</td></tr>
         </tbody>
       </table>
     </div>
 
+    <!-- 購入済みリフト券 -->
+    <div class="ticket-card">
+      <div class="ticket-head">
+        <div class="ticket-badge">✅ 購入済み</div>
+        <h4>ニセコユナイテッド 全山 1日券</h4>
+      </div>
+      <div class="rd-grid">
+        <div class="rd-item">
+          <div class="rd-label">ご予約ID</div>
+          <div class="rd-val">3040154</div>
+        </div>
+        <div class="rd-item">
+          <div class="rd-label">照会番号</div>
+          <div class="rd-val">D53WX1YL</div>
+        </div>
+        <div class="rd-item rd-full">
+          <div class="rd-label">引換方法</div>
+          <div class="rd-val">skiosk®（自動発券機）にQRコードをかざすだけ</div>
+          <div class="rd-sub">Niseko Unitedの各リゾート（ヒラフ／アンヌプリ）のベースに設置されている自動発券機で、リフト券に即引換えできる。窓口に並ぶ必要なし。</div>
+        </div>
+        <div class="rd-item rd-full">
+          <div class="ticket-qr-frame" id="ticket-qr">
+            <div class="qr-placeholder">
+              <div class="qr-ph-icon">📱</div>
+              <div class="qr-ph-text">QRコード画像をここに表示</div>
+              <div class="qr-ph-sub">メール「ニセコユナイテッド｜リフト券引換用QRコード [3040154]」から画像を保存し、<code>qr-ticket.png</code> として配置してください</div>
+            </div>
+          </div>
+          <div class="rd-sub" style="text-align:center;margin-top:10px">引換時はこの画面をskiosk®にかざす／画像をスマホに保存しておくと安心</div>
+        </div>
+      </div>
+    </div>
+
     <div class="callout blue">
       <span class="emoji">🎟️</span>
-      <div><strong>午前ヒラフ → 午後アンヌプリの予定なら「全山券」が◎</strong> 追加¥1,000でリフト券買い直し不要。ニセコユナイテッド共通券はシャトルバスも乗り放題。</div>
+      <div><strong>全山券は正解。</strong> Hirafuだけなら¥5,500だが、全山券は¥5,700でアンヌプリも滑れる＆シャトルバス乗り放題。差額¥200でSANU帰りも自由自在。</div>
+    </div>
+
+    <div class="callout amber">
+      <span class="emoji">📱</span>
+      <div><strong>当日の動き</strong> ― ①メールのQRコードをスマホに保存（スクリーンショット推奨）②ヒラフベースのskiosk®（ウェルカムセンター内）でQRをかざす③リフトパスのICチケットが出てくる④返却不要、各リフトゲートでタッチ。</div>
     </div>
 
     <div class="sec-title"><span class="dot" style="background:var(--sky)"></span>春おすすめコース</div>
