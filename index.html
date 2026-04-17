@@ -517,6 +517,200 @@
     .bk-grid { grid-template-columns: 1fr; }
     .ck-grid { grid-template-columns: 1fr; }
     .choices { grid-template-columns: 1fr; }
+    .weather-grid { grid-template-columns: 1fr; }
+    .rd-grid { grid-template-columns: 1fr; }
+    .tips { grid-template-columns: 1fr; }
+    .route-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ─── WEATHER ─── */
+  .weather-block { margin-bottom: 20px; }
+  .weather-city {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--night);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .weather-city .badge {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: var(--ice);
+    color: #475569;
+  }
+  .weather-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .w-day {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 10px;
+    text-align: center;
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    transition: transform 0.2s;
+  }
+  .w-day:hover { transform: translateY(-2px); }
+  .w-date {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-light);
+    letter-spacing: 0.04em;
+    margin-bottom: 4px;
+  }
+  .w-icon { font-size: 1.7rem; margin: 6px 0 4px; }
+  .w-desc {
+    font-size: 0.72rem;
+    color: var(--text);
+    margin-bottom: 8px;
+    min-height: 1em;
+  }
+  .w-temp {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--night);
+    margin-bottom: 4px;
+  }
+  .w-high { color: #dc2626; }
+  .w-low { color: var(--sky-deep); }
+  .w-sep { color: var(--text-light); font-weight: 400; margin: 0 4px; }
+  .w-rain {
+    font-size: 0.7rem;
+    color: var(--text-light);
+  }
+
+  /* ─── RENTAL DETAIL ─── */
+  .rental-card {
+    background: linear-gradient(135deg, #f8fafc 0%, #eef2f6 100%);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    margin: 14px 0;
+  }
+  .rental-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .rental-head h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--night);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .rental-head .rd-num {
+    font-size: 0.72rem;
+    color: var(--text-light);
+    font-weight: 500;
+    background: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+  }
+  .rd-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 18px;
+  }
+  .rd-item .rd-label {
+    font-size: 0.65rem;
+    color: var(--text-light);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+  .rd-item .rd-val {
+    color: var(--night);
+    font-weight: 500;
+    font-size: 0.84rem;
+  }
+  .rd-item .rd-sub {
+    font-size: 0.72rem;
+    color: var(--text-light);
+    margin-top: 3px;
+  }
+  .rd-item a {
+    color: var(--sky-deep);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--sky-deep);
+  }
+  .rd-full { grid-column: 1 / -1; }
+
+  /* ─── TIPS ─── */
+  .tips {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .tip {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 18px;
+    background: white;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .tip:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+  }
+  .tip h4 {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--night);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .tip p {
+    font-size: 0.76rem;
+    color: var(--text-light);
+    line-height: 1.65;
+  }
+
+  /* ─── ROUTE (札幌→ニセコ) ─── */
+  .route-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .route-item {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 18px;
+    background: #fafbfc;
+  }
+  .route-item h4 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--night);
+    margin-bottom: 6px;
+  }
+  .route-item .route-meta {
+    font-size: 0.72rem;
+    color: var(--sky-deep);
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .route-item p {
+    font-size: 0.76rem;
+    color: var(--text-light);
+    line-height: 1.6;
   }
 </style>
 </head>
@@ -830,6 +1024,385 @@
         <p>高橋牧場（ソフトクリーム＆羊蹄山ビュー）、五色温泉（秘湯）、道の駅でお土産。</p>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- ═══════ WEATHER ═══════ -->
+<div class="day-divider">
+  <span class="line"></span>
+  <span class="label">Weather</span>
+  <span class="line"></span>
+</div>
+
+<div class="day-card">
+  <div class="day-hero sky">
+    <div class="tagline">Spring forecast — pack light but stay warm</div>
+    <h2>🌤️ 3日間の天気予報</h2>
+    <div class="date-badge">4月17日 時点の予報（Yahoo!天気）</div>
+  </div>
+  <div class="day-body">
+
+    <div class="weather-block">
+      <div class="weather-city">📍 札幌 <span class="badge">Day 1</span></div>
+      <div class="weather-grid">
+        <div class="w-day">
+          <div class="w-date">4/17 金</div>
+          <div class="w-icon">🌤️</div>
+          <div class="w-desc">晴時々曇</div>
+          <div class="w-temp"><span class="w-high">18°</span><span class="w-sep">/</span><span class="w-low">5°</span></div>
+          <div class="w-rain">☂️ 0%</div>
+        </div>
+        <div class="w-day">
+          <div class="w-date">4/18 土</div>
+          <div class="w-icon">☁️</div>
+          <div class="w-desc">曇のち晴</div>
+          <div class="w-temp"><span class="w-high">18°</span><span class="w-sep">/</span><span class="w-low">9°</span></div>
+          <div class="w-rain">☂️ 10–30%</div>
+        </div>
+        <div class="w-day">
+          <div class="w-date">4/19 日</div>
+          <div class="w-icon">🌤️</div>
+          <div class="w-desc">晴時々曇</div>
+          <div class="w-temp"><span class="w-high">15°</span><span class="w-sep">/</span><span class="w-low">8°</span></div>
+          <div class="w-rain">☂️ 10%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="weather-block">
+      <div class="weather-city">🏔️ ニセコ <span class="badge">Day 2–3</span></div>
+      <div class="weather-grid">
+        <div class="w-day">
+          <div class="w-date">4/17 金</div>
+          <div class="w-icon">☀️</div>
+          <div class="w-desc">晴れ</div>
+          <div class="w-temp"><span class="w-high">15°</span><span class="w-sep">/</span><span class="w-low">3°</span></div>
+          <div class="w-rain">☂️ 0%</div>
+        </div>
+        <div class="w-day">
+          <div class="w-date">4/18 土</div>
+          <div class="w-icon">☁️</div>
+          <div class="w-desc">曇り</div>
+          <div class="w-temp"><span class="w-high">13°</span><span class="w-sep">/</span><span class="w-low">6°</span></div>
+          <div class="w-rain">☂️ —</div>
+        </div>
+        <div class="w-day">
+          <div class="w-date">4/19 日</div>
+          <div class="w-icon">🌤️</div>
+          <div class="w-desc">晴時々曇</div>
+          <div class="w-temp"><span class="w-high">15°</span><span class="w-sep">/</span><span class="w-low">4°</span></div>
+          <div class="w-rain">☂️ 10%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout amber">
+      <span class="emoji">🧥</span>
+      <div><strong>服装のコツ</strong> ― 日中は15〜18℃で薄手のジャケット＋長袖でOK。朝晩は一桁まで冷えるのでインナーダウンや薄手のニットを重ね着で。ゲレンデ上部はさらに低温＆強風の可能性あり、ニット帽とネックウォーマー推奨。</div>
+    </div>
+
+    <div class="callout blue">
+      <span class="emoji">☀️</span>
+      <div><strong>雪質予測</strong> ― 晴天続きで気温高め、4/18のニセコは標高の高いコースで朝は締まった雪、午後はザラメ雪に。午前にグラン・ヒラフ、午後に緩斜面のアンヌプリが◎</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════ RENTAL CAR DETAIL ═══════ -->
+<div class="day-divider">
+  <span class="line"></span>
+  <span class="label">Rental Car</span>
+  <span class="line"></span>
+</div>
+
+<div class="day-card">
+  <div class="day-hero forest">
+    <div class="tagline">SUV × 4WD × Studless — ready for Niseko</div>
+    <h2>🚗 レンタカー詳細</h2>
+    <div class="date-badge">ニッポンレンタカー</div>
+  </div>
+  <div class="day-body">
+
+    <div class="rental-card">
+      <div class="rental-head">
+        <h4>🚙 予約内容</h4>
+        <div class="rd-num">予約番号 T08329</div>
+      </div>
+      <div class="rd-grid">
+        <div class="rd-item">
+          <div class="rd-label">お名前</div>
+          <div class="rd-val">エグチ リョウスケ 様</div>
+        </div>
+        <div class="rd-item">
+          <div class="rd-label">クラス / タイプ</div>
+          <div class="rd-val">スタンダードプラス（SUV）</div>
+          <div class="rd-sub">スタッドレス・禁煙車・4WD</div>
+          <div class="rd-sub"><a href="https://www.nipponrentacar.co.jp/irc/cx.html" target="_blank" rel="noopener noreferrer">車種クラスの詳細 →</a></div>
+        </div>
+        <div class="rd-item">
+          <div class="rd-label">出発</div>
+          <div class="rd-val">4/18（土）9:00 札幌駅東店</div>
+          <div class="rd-sub">TEL: <a href="tel:05017122993">050-1712-2993</a></div>
+          <div class="rd-sub">住所: 札幌市中央区北4条東1-3-1</div>
+        </div>
+        <div class="rd-item">
+          <div class="rd-label">返却</div>
+          <div class="rd-val">4/19（日）15:00 新千歳空港店</div>
+          <div class="rd-sub">TEL: <a href="tel:05017122970">050-1712-2970</a></div>
+          <div class="rd-sub">営業時間: 07:00〜22:00</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout amber">
+      <span class="emoji">⛽</span>
+      <div><strong>返却時は満タン返し必須。</strong> 新千歳空港店周辺のガソリンスタンドは「エネオス千歳東雲町SS」「コスモ石油 千歳」などがあり、空港手前5〜10分の道沿いで給油できる。給油レシートを必ず保管。</div>
+    </div>
+
+    <div class="callout blue">
+      <span class="emoji">🕒</span>
+      <div><strong>復路フライト15:00 → 返却時間は余裕を持って13:00〜13:30が安全。</strong> 新千歳空港店は営業所が空港外にあり、送迎バスで国内線ターミナルまで約10〜15分かかる。返却→送迎→チェックイン→手荷物検査を考えると2時間前着が安心。</div>
+    </div>
+
+    <div class="callout green">
+      <span class="emoji">✅</span>
+      <div><strong>出発時の確認</strong> ― 運転免許証の有効期限、ETCカード挿入、カーナビの目的地登録（SANU 2nd Home ニセコ）、任意保険（免責補償・NOC補償）加入有無、車体の傷チェックを忘れずに。</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════ GRAND HIRAFU ═══════ -->
+<div class="day-divider">
+  <span class="line"></span>
+  <span class="label">Grand Hirafu</span>
+  <span class="line"></span>
+</div>
+
+<div class="day-card">
+  <div class="day-hero sky">
+    <div class="tagline">Niseko's largest resort — 22 courses under Yotei's gaze</div>
+    <h2>⛷️ ニセコ東急 グラン・ヒラフ 攻略ガイド</h2>
+    <div class="date-badge">4月18日（土）本命ゲレンデ</div>
+  </div>
+  <div class="day-body">
+
+    <div class="sec-title"><span class="dot"></span>基本情報</div>
+    <div class="rd-grid">
+      <div class="rd-item">
+        <div class="rd-label">営業期間</div>
+        <div class="rd-val">〜 2026/5/6（水）まで</div>
+        <div class="rd-sub">春営業中・リフト一部運休の可能性あり</div>
+      </div>
+      <div class="rd-item">
+        <div class="rd-label">営業時間</div>
+        <div class="rd-val">8:30 〜 16:30</div>
+        <div class="rd-sub">ナイター営業は冬期のみ（この時期は無し）</div>
+      </div>
+      <div class="rd-item">
+        <div class="rd-label">コース数 / 最長滑走距離</div>
+        <div class="rd-val">22コース / 5,600m</div>
+        <div class="rd-sub">ニセコ最大規模・標高差940m</div>
+      </div>
+      <div class="rd-item">
+        <div class="rd-label">問い合わせ</div>
+        <div class="rd-val"><a href="tel:0136220109">0136-22-0109</a></div>
+        <div class="rd-sub"><a href="https://www.grand-hirafu.jp/lift/" target="_blank" rel="noopener noreferrer">リフト運行状況 →</a></div>
+      </div>
+    </div>
+
+    <div class="sec-title"><span class="dot" style="background:var(--warm)"></span>リフト券（2026シーズン）</div>
+    <div class="ski-wrap">
+      <table class="ski-tbl">
+        <thead><tr><th>券種</th><th>大人</th><th>メモ</th></tr></thead>
+        <tbody>
+          <tr><td>グラン・ヒラフ 1日券</td><td>¥11,000</td><td>ヒラフエリア内のみ</td></tr>
+          <tr><td>ニセコユナイテッド 全山券 1日</td><td>¥12,000</td><td>アンヌプリも滑るなら断然こちら</td></tr>
+          <tr><td>半日券（午後）</td><td>要確認</td><td>12:00スタート向け。春は在庫少なめ</td></tr>
+          <tr><td><a href="https://www.grand-hirafu.jp/winter/gelande/online_shop.html" target="_blank" rel="noopener noreferrer">オンライン事前購入</a></td><td>約5% OFF</td><td>窓口行列を回避できるのでおすすめ</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout blue">
+      <span class="emoji">🎟️</span>
+      <div><strong>午前ヒラフ → 午後アンヌプリの予定なら「全山券」が◎</strong> 追加¥1,000でリフト券買い直し不要。ニセコユナイテッド共通券はシャトルバスも乗り放題。</div>
+    </div>
+
+    <div class="sec-title"><span class="dot" style="background:var(--sky)"></span>春おすすめコース</div>
+    <div class="spots">
+      <div class="spot pick">
+        <span class="spot-tag tag-pick">★ 朝イチの本命</span>
+        <h4>花園第3ロマンスリフト → エース第3ペア → エース第4リフト</h4>
+        <div class="info">グランヒラフ最上部。朝は締まった雪で高速カービング。羊蹄山パノラマが絶景。天候良ければ一番乗りしたいエリア。</div>
+      </div>
+      <div class="spot">
+        <span class="spot-tag tag-alt">幅広クルージング</span>
+        <h4>エース第2ペアリフト「スーパーコース」</h4>
+        <div class="info">初中級者向けのワイドバーン。春のザラメ雪でも気持ちよく滑れる。ウォーミングアップや休憩後の1本に。</div>
+      </div>
+      <div class="spot">
+        <span class="spot-tag tag-cat">絶景</span>
+        <h4>キング第3リフト → 「キング・ベル」コース</h4>
+        <div class="info">長距離クルーザー。上部から見下ろす羊蹄山がポストカード級。写真撮影におすすめ。</div>
+      </div>
+      <div class="spot">
+        <span class="spot-tag tag-bar">中上級</span>
+        <h4>エース第1クワッド → 「白樺コース」/「みはらし」</h4>
+        <div class="info">やや斜度のある中斜面。春はコブができてることも。午前の締まった雪でテクニカルに。</div>
+      </div>
+    </div>
+
+    <div class="callout amber">
+      <span class="emoji">⏰</span>
+      <div><strong>春スキーの鉄則：午前勝負。</strong> 気温上昇で午後はザラメ雪→重雪→シャビシャビに変化。9:00〜12:00が最もコンディション良好。昼休憩は短めにしてもう一本を優先。</div>
+    </div>
+
+    <div class="sec-title"><span class="dot" style="background:var(--rose)"></span>ゲレンデ内ランチ・カフェ</div>
+    <div class="spots">
+      <div class="spot pick">
+        <span class="spot-tag tag-pick">★ 本命</span>
+        <h4>NEST813（ネスト813）</h4>
+        <div class="info">2023年オープンの新ベースレストラン。スキーイン/アウト可。北海道食材を使ったボウル料理・カレーが人気。窓からの眺めも◎</div>
+      </div>
+      <div class="spot">
+        <span class="spot-tag tag-cat">和食</span>
+        <h4>sanshoku（三食）</h4>
+        <div class="info">ヒラフベースの和食系。海鮮丼・定食。日本らしい味をがっつり食べたいときに。</div>
+      </div>
+      <div class="spot">
+        <span class="spot-tag tag-bar">クラフトビール</span>
+        <h4>POWDERHOOD RESTAURANT & TAPROOM</h4>
+        <div class="info">ヒラフのタップルーム。滑走後のアプレスキーに最適。クラフトビールとピザ・バーガー系。</div>
+      </div>
+      <div class="spot">
+        <span class="spot-tag tag-alt">絶景カフェ</span>
+        <h4>ACE HILL / KING BELL</h4>
+        <div class="info">ゲレンデ中腹のロッジ系。カレー・ラーメンなどサクッと食べられる。混雑回避なら11時台 or 13:30以降を狙う。</div>
+      </div>
+    </div>
+
+    <div class="sec-title"><span class="dot" style="background:var(--green)"></span>レンタル・アクセス</div>
+    <div class="tips">
+      <div class="tip">
+        <h4>🎿 レンタル</h4>
+        <p>ヒラフベース「<a href="https://rhythmjapan.com/ja/" target="_blank" rel="noopener noreferrer">Rhythm Niseko</a>」「<a href="https://www.nisekosports.com/" target="_blank" rel="noopener noreferrer">Niseko Sports</a>」が最大級。オンライン事前予約で10〜15%OFF・待ち時間ゼロ。</p>
+      </div>
+      <div class="tip">
+        <h4>🅿️ 駐車場</h4>
+        <p>ヒラフ第1〜第3駐車場（無料）。朝9時以降は混むため、8:30目安で到着推奨。SANUから約10分。</p>
+      </div>
+      <div class="tip">
+        <h4>🚻 ロッカー・更衣室</h4>
+        <p>ヒラフウェルカムセンターに有料コインロッカー（¥500〜）と更衣室あり。板キャリーも借りられる。</p>
+      </div>
+      <div class="tip">
+        <h4>♨️ 滑走後の温泉</h4>
+        <p>ベース至近の「<a href="https://hirafutei.com/" target="_blank" rel="noopener noreferrer">綾ニセコ</a>」「木ニセコ」で日帰り入浴OK。疲れた脚をリセットしてからディナーへ。</p>
+      </div>
+    </div>
+
+    <div class="callout green">
+      <span class="emoji">📸</span>
+      <div><strong>絶対撮っておきたい景色</strong> ― キング第3リフト下車地点からの羊蹄山、ACE HILL前の標識、エース第4リフト山頂からのパノラマ。晴天予報なので超高確率で撮れる！</div>
+    </div>
+
+    <div class="callout rose">
+      <span class="emoji">⚠️</span>
+      <div><strong>春スキー注意点</strong> ― ①日焼け止めSPF50+必須（雪面反射で焼ける）②雪面がシャビシャビだとエッジが取られやすい③上部は急に天気崩れるのでレイヤリング重視④リフト停止時間が早まる可能性あり、15:30までに下山開始。</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════ TRAVEL TIPS ═══════ -->
+<div class="day-divider">
+  <span class="line"></span>
+  <span class="label">Travel Tips</span>
+  <span class="line"></span>
+</div>
+
+<div class="day-card">
+  <div class="day-hero night">
+    <div class="tagline">Small details that make the trip smoother</div>
+    <h2>💡 役立ち情報</h2>
+    <div class="date-badge">ドライブ・温泉・お土産など</div>
+  </div>
+  <div class="day-body">
+
+    <div class="sec-title"><span class="dot"></span>札幌 → ニセコ ドライブ休憩ポイント</div>
+    <div class="route-grid">
+      <div class="route-item">
+        <div class="route-meta">🚘 約1時間地点</div>
+        <h4>道の駅 望洋中山</h4>
+        <p>中山峠にある道の駅。名物「あげいも」と羊蹄山の絶景。トイレ休憩と写真スポットに最適。</p>
+      </div>
+      <div class="route-item">
+        <div class="route-meta">🚘 約2時間地点</div>
+        <h4>ニセコ高橋牧場</h4>
+        <p>濃厚ミルクのソフトクリーム＆羊蹄山ビュー。ニセコ入り口の定番休憩スポット。チーズ・ヨーグルトも。</p>
+      </div>
+    </div>
+
+    <div class="sec-title"><span class="dot" style="background:var(--warm)"></span>ニセコ周辺 ひと休みスポット</div>
+    <div class="tips">
+      <div class="tip">
+        <h4>♨️ 五色温泉</h4>
+        <p>標高750mの秘湯。乳白色の硫黄泉で雪景色を眺めながらの露天風呂。SANUから車で約30分。</p>
+      </div>
+      <div class="tip">
+        <h4>♨️ 昆布温泉 湯心亭</h4>
+        <p>源泉かけ流し。日帰り入浴OK（要時間確認）。ニセコの歴史ある湯。</p>
+      </div>
+      <div class="tip">
+        <h4>☕ ミルク工房</h4>
+        <p>ニセコ高橋牧場内のカフェ。プリン・シュークリームが名物。羊蹄山ビュー最高。</p>
+      </div>
+      <div class="tip">
+        <h4>🛒 ルスツ・喜茂別 道の駅</h4>
+        <p>帰路で寄りやすい道の駅。地元野菜・じゃがいも・お土産が買える。</p>
+      </div>
+    </div>
+
+    <div class="sec-title"><span class="dot" style="background:var(--rose)"></span>知っておくと安心</div>
+    <div class="tips">
+      <div class="tip">
+        <h4>📶 携帯電波</h4>
+        <p>ニセコエリアはdocomo/au/SoftBank全般OK。山間部の国道230号一部区間で電波弱まることあり。オフラインマップ推奨。</p>
+      </div>
+      <div class="tip">
+        <h4>💴 現金</h4>
+        <p>SANU・スキー場・主要飲食店はカードOKだが、小規模店や温泉は現金のみも。1〜2万円は持参推奨。</p>
+      </div>
+      <div class="tip">
+        <h4>🕐 ラストオーダー</h4>
+        <p>ニセコの飲食店は21:00〜22:00でL.O.が多め。Day 2ディナーは20:00までの入店を目安に。</p>
+      </div>
+      <div class="tip">
+        <h4>🏔️ 羊蹄山ビュー</h4>
+        <p>高橋牧場、京極ふきだし公園、半月湖畔、真狩の丘が絶景スポット。朝の光が美しい。</p>
+      </div>
+      <div class="tip">
+        <h4>🛍️ 札幌駅でお土産</h4>
+        <p>Day 1 夜 or Day 2 朝に札幌駅「大丸」「エスタ」でLeTAO、ロイズ、六花亭、白い恋人などまとめ買いが効率的。</p>
+      </div>
+      <div class="tip">
+        <h4>🚨 緊急連絡先</h4>
+        <p>警察110 / 救急119 / JAF #8139（ロードサービス）。保険会社の24時間受付番号も事前確認を。</p>
+      </div>
+    </div>
+
+    <div class="callout green">
+      <span class="emoji">🎿</span>
+      <div><strong>スキーレンタル事前予約</strong> ― 春営業のため在庫が限定的。<a href="https://rhythmjapan.com/ja/" target="_blank" rel="noopener noreferrer">Rhythm Niseko</a> や <a href="https://www.nisekosports.com/" target="_blank" rel="noopener noreferrer">Niseko Sports</a> で前日までにオンライン予約しておくとスムーズ。</div>
+    </div>
+
+    <div class="callout rose">
+      <span class="emoji">📱</span>
+      <div><strong>あると便利なアプリ</strong> ― Google Maps（オフライン保存）、Yahoo!カーナビ、Yahoo!天気、ICSFシリコンリフト券アプリ、SANUのチェックイン用メール、Uber/GOアプリ（札幌市内のみ）</div>
+    </div>
+
   </div>
 </div>
 
